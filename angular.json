@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "sda-app"
+    }
+  },
+  "defaultProject": "sda-app",
+  "cli": {
+    "analytics": false
+  }
 }
