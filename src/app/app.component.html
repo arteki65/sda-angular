@@ -1,4 +1,8 @@
 <h1>{{ title }}</h1>
 <p>
-  {{ description }}<span>{{ framework }}</span>
+  {{ description }}<span>{{ framework | uppercase }}</span>
 </p>
+<!-- <button (click)="clickHandler()">Click Me</button>
+<p *ngIf="message != null">{{ message }}</p> -->
+<app-sda-button></app-sda-button>
+<app-log-message></app-log-message>

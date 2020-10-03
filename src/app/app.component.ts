@@ -9,4 +9,9 @@ export class AppComponent {
   title = 'Awesome sda app!!!';
   description = 'This is our first app in ';
   framework = 'angular';
+  message: String;
+
+  clickHandler() {
+    this.message = 'Button was clicked!!!';
+  }
 }
