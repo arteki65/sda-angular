@@ -1,8 +1,1 @@
-<h1>{{ title }}</h1>
-<p>
-  {{ description }}<span>{{ framework | uppercase }}</span>
-</p>
-<!-- <button (click)="clickHandler()">Click Me</button>
-<p *ngIf="message != null">{{ message }}</p> -->
-<app-sda-button (btnClicked)="handleBtnClicked($event)"></app-sda-button>
-<app-log-message [message]="message"></app-log-message>
+<router-outlet></router-outlet>
