@@ -11,7 +11,7 @@ export class AppComponent {
   framework = 'angular';
   message: String;
 
-  clickHandler() {
-    this.message = 'Button was clicked!!!';
+  handleBtnClicked(message: String) {
+    this.message = message;
   }
 }

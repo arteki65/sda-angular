@@ -4,5 +4,5 @@
 </p>
 <!-- <button (click)="clickHandler()">Click Me</button>
 <p *ngIf="message != null">{{ message }}</p> -->
-<app-sda-button></app-sda-button>
-<app-log-message></app-log-message>
+<app-sda-button (btnClicked)="handleBtnClicked($event)"></app-sda-button>
+<app-log-message [message]="message"></app-log-message>

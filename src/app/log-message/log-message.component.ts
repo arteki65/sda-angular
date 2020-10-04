@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   templateUrl: './log-message.component.html',
   styleUrls: ['./log-message.component.less'],
   selector: 'app-log-message',
 })
-export class LogMessageComponent {}
+export class LogMessageComponent {
+  @Input() message: String;
+}

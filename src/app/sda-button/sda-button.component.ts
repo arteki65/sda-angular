@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-sda-button',
   templateUrl: './sda-button.component.html',
-  styleUrls: ['./sda-button.component.less']
+  styleUrls: ['./sda-button.component.less'],
 })
 export class SdaButtonComponent implements OnInit {
+  @Output() btnClicked = new EventEmitter<String>();
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  clickHandler() {
+    this.btnClicked.emit('Sda button was clicked!');
   }
-
 }
