@@ -9,4 +9,12 @@ export class UiService {
   isLoading = new Subject<boolean>();
 
   constructor() {}
+
+  showLoadingIndicator() {
+    setTimeout(() => this.isLoading.next(true), 0);
+  }
+
+  hideLoadingIndicator() {
+    setTimeout(() => this.isLoading.next(false), 0);
+  }
 }

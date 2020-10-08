@@ -2,6 +2,7 @@ import { UiService } from './../services/ui.service';
 import { OpenNotifyService } from './../services/open-notify.service';
 import {
   AfterContentChecked,
+  AfterViewInit,
   Component,
   OnDestroy,
   OnInit,
@@ -23,16 +24,14 @@ export class IssPositionComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.uiService.isLoading.next(true);
+    this.uiService.showLoadingIndicator();
     this.openNotifyService.getIssPosition().subscribe((issPosition) => {
-      setTimeout(() => {
-        this.uiService.isLoading.next(false);
-        this.issPosition = issPosition;
-        this.timeout = setInterval(
-          () => IssPositionComponent.refreshIssPosition(this),
-          this.uiService.autoRefreshSeconds * 1000
-        );
-      }, 500);
+      this.uiService.hideLoadingIndicator();
+      this.issPosition = issPosition;
+      this.timeout = setInterval(
+        () => IssPositionComponent.refreshIssPosition(this),
+        this.uiService.autoRefreshSeconds * 1000
+      );
     });
   }
 
