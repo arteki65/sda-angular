@@ -16,6 +16,8 @@ import { IssPosition } from '../dto/iss-position';
 export class IssPositionComponent implements OnInit, OnDestroy {
   issPosition: IssPosition;
   private timeout: any;
+  
+  
 
   constructor(
     private openNotifyService: OpenNotifyService,

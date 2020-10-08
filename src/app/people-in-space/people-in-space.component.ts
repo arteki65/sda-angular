@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PeopleInSpace } from '../dto/people-in-space';
+import { OpenNotifyService } from '../services/open-notify.service';
 
 @Component({
   selector: 'app-people-in-space',
@@ -6,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./people-in-space.component.less'],
 })
 export class PeopleInSpaceComponent implements OnInit {
+ 
+  peopleInSpace: PeopleInSpace;
+  
+
+
   // TODO: inject openNotifyService
-  constructor() {}
+  constructor(private openNotifyService: OpenNotifyService) {}
 
   // TODO: call getPeopleInSpace from service and handle response
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+    this.openNotifyService.getPeopleInSpace().subscribe((peoples) => this.peopleInSpace = peoples);
+  
+  }
 }

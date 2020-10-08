@@ -1,1 +1,15 @@
-<!-- show info about people in space, use *ngFor directive, add back to home button -->
+<div>
+    <table>
+        <thead>
+            <th>Name</th>
+            <th>Craft</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let human of peopleInSpace.people">
+                <td>{{human.name}}</td>
+                <td>{{human.craft}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<a [routerLink]="'/home'">Back to home page</a>
