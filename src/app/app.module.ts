@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { PeopleInSpaceComponent } from './people-in-space/people-in-space.component';
 import { IssPositionComponent } from './iss-position/iss-position.component';
 import { HomeComponent } from './home/home.component';
+import { LoadingIndicatorComponent } from './loading-indicator/loading-indicator.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { HomeComponent } from './home/home.component';
     PeopleInSpaceComponent,
     IssPositionComponent,
     HomeComponent,
+    LoadingIndicatorComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
