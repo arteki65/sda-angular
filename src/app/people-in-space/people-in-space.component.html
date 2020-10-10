@@ -1,7 +1,5 @@
 <!-- show info about people in space, use *ngFor directive, add back to home button -->
 
-<a [routerLink]="'/home'">Back to home page</a>
-
 <div *ngIf="peopleInspace != null">
   <p>Status: {{ peopleInspace.message }}</p>
   <p>how many: {{ peopleInspace.number }}</p>
@@ -9,3 +7,5 @@
     name: {{ humanInSpace.name }} craft: {{ humanInSpace.craft }}
   </p>
 </div>
+
+<a [routerLink]="'/home'">Back to home page</a>

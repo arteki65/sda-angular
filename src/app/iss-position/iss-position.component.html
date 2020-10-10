@@ -1,6 +1,20 @@
 <div *ngIf="issPosition != null">
-  <p>Status: {{ issPosition.message}}</p>
+  <p>Status: {{ issPosition.message }}</p>
   <p>Latitude: {{ issPosition.iss_position.latitude }}</p>
   <p>Longitude: {{ issPosition.iss_position.longitude }}</p>
+
+  <agm-map
+    [latitude]="52.22977"
+    [longitude]="21.01178"
+    [zoom]="2"
+    [disableDefaultUI]="true"
+    [maxZoom]="2"
+    [minZoom]="2"
+  >
+    <agm-marker
+      [latitude]="issPosition.iss_position.latitude"
+      [longitude]="issPosition.iss_position.longitude"
+    ></agm-marker>
+  </agm-map>
 </div>
 <a [routerLink]="'/home'">Back to home page</a>

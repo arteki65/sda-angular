@@ -8,6 +8,7 @@ import { PeopleInSpaceComponent } from './people-in-space/people-in-space.compon
 import { IssPositionComponent } from './iss-position/iss-position.component';
 import { HomeComponent } from './home/home.component';
 import { LoadingIndicatorComponent } from './loading-indicator/loading-indicator.component';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,14 @@ import { LoadingIndicatorComponent } from './loading-indicator/loading-indicator
     HomeComponent,
     LoadingIndicatorComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    AgmCoreModule.forRoot({
+      apiKey: '',
+    }),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
