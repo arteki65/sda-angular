@@ -11,10 +11,10 @@ export class UiService {
   constructor() {}
 
   showLoadingIndicator() {
-    setTimeout(() => this.isLoading.next(true), 0);
+    this.isLoading.next(true);
   }
 
   hideLoadingIndicator() {
-    setTimeout(() => this.isLoading.next(false), 0);
+    this.isLoading.next(false);
   }
 }
