@@ -1,5 +1,5 @@
+import { PeopleInSpace } from './../dto/people-in-space';
 import { Component, OnInit } from '@angular/core';
-import { PeopleInSpace } from '../dto/people-in-space';
 import { UiService } from './../services/ui.service';
 import { OpenNotifyService } from './../services/open-notify.service';
 
@@ -20,14 +20,19 @@ export class PeopleInSpaceComponent implements OnInit {
   // TODO: call getPeopleInSpace from service and handle response
   ngOnInit(): void {
     this.uiService.isLoading.next(true);
-    this.openNotifyService.getPeopleInSpace().subscribe(peopleInSpace) ;
-      
+    this.openNotifyService
+      .getPeopleInSpace()
+      .subscribe((peopleInSpace) => this.handleResponse(peopleInSpace));
+
     this.uiService.isLoading.next(false);
+  }
+
+  private handleResponse(peopleInSpace: PeopleInSpace) {
+    console.log('peopleInSpace', peopleInSpace);
+    console.log('this', this);
     this.peopleInSpace = peopleInSpace;
-    
   }
 }
-
 
 // #############
 // ngOnInit(): void {
