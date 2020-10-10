@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { OpenNotifyService } from '../services/open-notify.service';
+import { UiService } from '../services/ui.service';
+import { PeopleInSpace } from '../dto/people-in-space';
 
 @Component({
   selector: 'app-people-in-space',
@@ -6,9 +9,36 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./people-in-space.component.less'],
 })
 export class PeopleInSpaceComponent implements OnInit {
-  // TODO: inject openNotifyService
-  constructor() {}
+  peopleInspace: PeopleInSpace;
+
+  constructor(
+    private openNotifyService: OpenNotifyService,
+    private uiService: UiService
+  ) {}
 
   // TODO: call getPeopleInSpace from service and handle response
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.uiService.isLoading.next(true);
+    this.openNotifyService.getPeopleInSpace().subscribe(
+      (peopleInspace) => {
+        this.peopleInspace = peopleInspace;
+        this.uiService.isLoading.next(false);
+      },
+      (error) => console.log('error "in" subscribe', error)
+    );
+  }
+
+  // ngOnInit(): void {
+  //   this.uiService.isLoading.next(true);
+  //   this.openNotifyService.getIssPosition().subscribe((issPosition) => {
+
+  //       this.uiService.isLoading
+  //       this.issPosition = issPosition;
+  //       this.timeout = setInterval(
+  //         () => IssPositionComponent.refreshIssPosition(this),
+  //         this.uiService.autoRefreshSeconds * 1000
+  //       );
+
+  //   });
+  // }
 }
