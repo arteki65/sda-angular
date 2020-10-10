@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IssPosition } from '../dto/iss-position';
+import { PeopleInSpace } from '../dto/people-in-space';
 
 @Injectable({
   providedIn: 'root',
@@ -13,8 +14,8 @@ export class OpenNotifyService {
   constructor(private httpClient: HttpClient) {}
 
   // TODO: replace any by PeopleInSpace
-  getPeopleInSpace(): Observable<any> {
-    return this.httpClient.get(`${this.baseApiUrl}/astros.json`);
+  getPeopleInSpace(): Observable<PeopleInSpace> {
+    return this.httpClient.get<PeopleInSpace>(`${this.baseApiUrl}/astros.json`);
   }
 
   getIssPosition(): Observable<IssPosition> {
