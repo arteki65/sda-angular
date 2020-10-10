@@ -9,6 +9,7 @@ import { IssPositionComponent } from './iss-position/iss-position.component';
 import { HomeComponent } from './home/home.component';
 import { LoadingIndicatorComponent } from './loading-indicator/loading-indicator.component';
 import { AgmCoreModule } from '@agm/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,8 @@ import { AgmCoreModule } from '@agm/core';
     AgmCoreModule.forRoot({
       apiKey: '',
     }),
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,9 +1,31 @@
 <!-- show info about people in space, use *ngFor directive, add back to home button -->
 
 <div *ngIf="peopleInspace != null">
+  <p>Reactive form</p>
+  <form [formGroup]="searchForm" (ngSubmit)="onSubmit()" id="reactive-form">
+    <label>
+      Search query:
+      <input type="text" formControlName="query" />
+      <p *ngIf="searchForm.get('query').invalid">
+        Invalid: {{ searchForm.get("query").errors.incorrectQuery.value }}
+        should contain only letters
+      </p>
+    </label>
+    <button type="submit" [disabled]="searchForm.invalid">Submit</button>
+  </form>
+
+  <p>Template driven form</p>
+  <form (ngSubmit)="onSubmitTemaplteDriven()">
+    <label>
+      Search query:
+      <input type="text" [(ngModel)]="query" id="query" name="query" />
+    </label>
+    <button type="submit">Submit</button>
+  </form>
+
   <p>Status: {{ peopleInspace.message }}</p>
   <p>how many: {{ peopleInspace.number }}</p>
-  <p *ngFor="let humanInSpace of peopleInspace.people">
+  <p *ngFor="let humanInSpace of filterefPeopleInSpace">
     name: {{ humanInSpace.name }} craft: {{ humanInSpace.craft }}
   </p>
 </div>
